@@ -25,7 +25,7 @@ while True:
         query = sys.stdin.read(size)
     
 
-    print("Hello %s\nYour decrypted message is: %s" % a[0], Decode())
+    c.send("Hello %s\nYour reversed message is: %s" % a[0], Reverse())
     c.close()
 
 
@@ -44,29 +44,16 @@ message = "".join(fragments)
 
 
 
-def Decode(str):
-    decoded= ''
-    i = 0
-    while(i < query.length):
-        codeChar = query[i]
-        codeNum = ord(codeChar)
-        codeNum -= 3
-        
-        if(codeNum < 32  ||  126 < newCharCode){
-            #underflow exception
-            if(codeNum < 32){
-                underBy = 32 - codeNum;
-                newCodeNum = 127 - underBy;
-            }
-            #overflow exception
-            if(126 < codeNum){
-                overBy = codeNum - 126;
-                newcodeNum = 31 + overBy;
-            }
-        }
-            
-        
-        decodedChar = chr(newCodeNum)
-        decoded[i] = decodedChar
-        i += 1
-    return decoded
+def Reverse(str):
+    reversed= ''
+    i = query.length -1
+    j = 0
+    while(i >=0):
+        reversed[j] = query[i]
+        j = j+1
+        i = i-1
+    return reversed
+
+
+
+getElementById('Response').innerHTML = "Reversed: " + reversed
